@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gyan Jyoti Institute of Technology & Management | GJITM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0a1f44;
+    --navy-light: #122352;
+    --gold: #c9a227;
+    --gold-light: #e8bb3c;
+    --red: #c0392b;
+    --white: #ffffff;
+    --off-white: #f8f6f1;
+    --gray: #6b7280;
+    --light-gray: #e8e4dc;
+    --text: #1a1a2e;
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+    --shadow: 0 4px 24px rgba(10,31,68,0.10);
+    --shadow-lg: 0 12px 48px rgba(10,31,68,0.18);
+    --radius: 8px;
+    --radius-lg: 16px;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); color: var(--text); background: var(--white); overflow-x: hidden; }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    background: var(--navy);
+    color: rgba(255,255,255,0.75);
+    font-size: 13px;
+    padding: 6px 0;
+  }
+  .topbar-inner {
+    max-width: 1200px; margin: auto; padding: 0 24px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+  .topbar a { color: rgba(255,255,255,0.75); text-decoration: none; }
+  .topbar a:hover { color: var(--gold); }
+  .topbar-links { display: flex; gap: 20px; }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--white);
+    box-shadow: 0 2px 16px rgba(10,31,68,0.08);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .header-inner {
+    max-width: 1200px; margin: auto; padding: 0 24px;
+    display: flex; align-items: center; gap: 24px; height: 72px;
+  }
+  .logo-block { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .logo-emblem {
+    width: 52px; height: 52px; background: var(--navy);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--gold);
+    flex-shrink: 0;
+  }
+  .logo-text { line-height: 1.2; }
+  .logo-text .name { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--navy); }
+  .logo-text .abbr { font-size: 12px; color: var(--gray); font-weight: 500; letter-spacing: 0.04em; }
+  nav { display: flex; gap: 4px; margin-left: auto; }
+  nav a {
+    font-size: 14px; font-weight: 500; color: var(--text); text-decoration: none;
+    padding: 8px 14px; border-radius: var(--radius); transition: all 0.2s;
+  }
+  nav a:hover, nav a.active { background: var(--off-white); color: var(--navy); }
+  .btn-apply {
+    background: var(--red); color: var(--white) !important;
+    padding: 9px 20px; border-radius: var(--radius); font-weight: 600;
+    font-size: 14px; text-decoration: none; white-space: nowrap;
+    transition: background 0.2s;
+  }
+  .btn-apply:hover { background: #a93226 !important; }
+
+  /* ── HAMBURGER ── */
+  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--navy); margin: 5px 0; border-radius: 2px; transition: 0.3s; }
+  .mobile-nav { display: none; background: var(--white); border-top: 1px solid var(--light-gray); padding: 12px 24px 20px; }
+  .mobile-nav a { display: block; padding: 10px 0; font-size: 15px; font-weight: 500; color: var(--text); text-decoration: none; border-bottom: 1px solid var(--light-gray); }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative; overflow: hidden;
+    min-height: 560px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 60%, #1a3a6e 100%);
+    display: flex; align-items: center;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; opacity: 0.07;
+    background-image: repeating-linear-gradient(45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%);
+    background-size: 30px 30px;
+  }
+  .hero-inner {
+    max-width: 1200px; margin: auto; padding: 60px 24px;
+    display: grid; grid-template-columns: 1fr 420px; gap: 48px; align-items: center; width: 100%;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(201,162,39,0.15); border: 1px solid rgba(201,162,39,0.4);
+    padding: 6px 16px; border-radius: 100px; margin-bottom: 20px;
+    font-size: 13px; font-weight: 500; color: var(--gold);
+  }
+  .hero h1 {
+    font-family: var(--font-display); font-size: clamp(28px, 4vw, 48px);
+    font-weight: 700; color: var(--white); line-height: 1.15; margin-bottom: 20px;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero p { font-size: 16px; color: rgba(255,255,255,0.75); line-height: 1.7; margin-bottom: 32px; max-width: 520px; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold); color: var(--navy); font-weight: 700;
+    padding: 13px 28px; border-radius: var(--radius); text-decoration: none;
+    font-size: 15px; transition: background 0.2s; display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { background: var(--gold-light); }
+  .btn-outline {
+    background: transparent; color: var(--white); font-weight: 600;
+    padding: 13px 28px; border-radius: var(--radius); text-decoration: none;
+    font-size: 15px; border: 1.5px solid rgba(255,255,255,0.35); transition: all 0.2s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.07); }
+  .hero-stats {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 40px;
+    padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  .stat-item { text-align: center; }
+  .stat-num { font-family: var(--font-display); font-size: 28px; font-weight: 700; color: var(--gold); }
+  .stat-label { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+  /* Quick-access card in hero */
+  .hero-card {
+    background: rgba(255,255,255,0.06); backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-lg);
+    padding: 28px; display: grid; gap: 14px;
+  }
+  .hero-card-title { font-size: 14px; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .quick-link {
+    display: flex; align-items: center; gap: 12px; padding: 12px 16px;
+    background: rgba(255,255,255,0.06); border-radius: var(--radius);
+    text-decoration: none; color: var(--white); font-size: 14px; font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.1); transition: all 0.2s; cursor: pointer;
+  }
+  .quick-link:hover { background: rgba(201,162,39,0.15); border-color: rgba(201,162,39,0.4); }
+  .quick-link-icon { width: 34px; height: 34px; border-radius: 8px; background: rgba(201,162,39,0.18); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+
+  /* ── TICKER ── */
+  .ticker { background: var(--gold); padding: 10px 0; overflow: hidden; }
+  .ticker-inner { display: flex; gap: 60px; white-space: nowrap; animation: scroll 30s linear infinite; }
+  .ticker-item { font-size: 14px; font-weight: 600; color: var(--navy); }
+  @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ── SECTIONS ── */
+  .section { padding: 72px 24px; }
+  .section-inner { max-width: 1200px; margin: auto; }
+  .section-alt { background: var(--off-white); }
+  .section-dark { background: var(--navy); color: var(--white); }
+  .section-label { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .section-title { font-family: var(--font-display); font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: 16px; }
+  .section-dark .section-title { color: var(--white); }
+  .section-subtitle { font-size: 16px; color: var(--gray); line-height: 1.7; max-width: 560px; }
+  .section-dark .section-subtitle { color: rgba(255,255,255,0.65); }
+  .section-header { margin-bottom: 44px; }
+  .section-header.centered { text-align: center; }
+  .section-header.centered .section-subtitle { margin: 0 auto; }
+
+  /* ── COURSES GRID ── */
+  .courses-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+  .course-card {
+    background: var(--white); border-radius: var(--radius-lg);
+    border: 1.5px solid var(--light-gray); padding: 28px;
+    transition: all 0.3s; cursor: default;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .course-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--gold); }
+  .course-icon {
+    width: 52px; height: 52px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center; font-size: 24px;
+  }
+  .course-card h3 { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--navy); }
+  .course-card p { font-size: 14px; color: var(--gray); line-height: 1.6; flex: 1; }
+  .course-meta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: auto; }
+  .badge { font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 100px; }
+  .badge-navy { background: rgba(10,31,68,0.08); color: var(--navy); }
+  .badge-gold { background: rgba(201,162,39,0.12); color: #9a7700; }
+  .badge-red { background: rgba(192,57,43,0.1); color: var(--red); }
+
+  /* ── FEES TABLE ── */
+  .fees-table-wrap { overflow-x: auto; border-radius: var(--radius-lg); border: 1.5px solid var(--light-gray); }
+  table.fees-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .fees-table th { background: var(--navy); color: var(--white); padding: 14px 20px; text-align: left; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .fees-table td { padding: 14px 20px; border-bottom: 1px solid var(--light-gray); }
+  .fees-table tr:last-child td { border-bottom: none; }
+  .fees-table tr:hover td { background: var(--off-white); }
+  .fees-table td:last-child { font-weight: 600; color: var(--navy); }
+
+  /* ── EVENTS ── */
+  .events-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+  .event-card {
+    background: var(--white); border-radius: var(--radius-lg);
+    border: 1.5px solid var(--light-gray); overflow: hidden; transition: all 0.3s;
+  }
+  .event-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+  .event-header { background: var(--navy); padding: 20px 24px; display: flex; align-items: center; gap: 16px; }
+  .event-date { text-align: center; min-width: 48px; }
+  .event-date .day { font-family: var(--font-display); font-size: 28px; font-weight: 700; color: var(--gold); line-height: 1; }
+  .event-date .month { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.06em; }
+  .event-title { font-size: 15px; font-weight: 600; color: var(--white); }
+  .event-type { font-size: 12px; color: var(--gold); margin-top: 2px; }
+  .event-body { padding: 20px 24px; }
+  .event-body p { font-size: 14px; color: var(--gray); line-height: 1.6; }
+  .event-footer { padding: 0 24px 20px; display: flex; justify-content: space-between; align-items: center; }
+  .event-loc { font-size: 12px; color: var(--gray); display: flex; align-items: center; gap: 6px; }
+
+  /* ── CONTACT SECTION ── */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .contact-info { display: flex; flex-direction: column; gap: 20px; }
+  .contact-item { display: flex; align-items: flex-start; gap: 16px; }
+  .contact-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: rgba(201,162,39,0.15); display: flex; align-items: center;
+    justify-content: center; font-size: 18px; flex-shrink: 0;
+  }
+  .contact-item h4 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .contact-item p { font-size: 14px; color: var(--gray); line-height: 1.6; }
+
+  /* Contact form */
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label { font-size: 13px; font-weight: 600; color: var(--navy); }
+  .form-group input, .form-group select, .form-group textarea {
+    padding: 10px 14px; border: 1.5px solid var(--light-gray); border-radius: var(--radius);
+    font-family: var(--font-body); font-size: 14px; color: var(--text);
+    transition: border-color 0.2s; outline: none; background: var(--white);
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--navy); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .btn-submit {
+    background: var(--navy); color: var(--white); border: none;
+    padding: 13px 28px; border-radius: var(--radius); font-family: var(--font-body);
+    font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.2s;
+  }
+  .btn-submit:hover { background: #0e2957; }
+
+  /* ── FACULTY ── */
+  .faculty-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 24px; }
+  .faculty-card {
+    background: var(--white); border-radius: var(--radius-lg);
+    border: 1.5px solid var(--light-gray); padding: 24px; text-align: center;
+    transition: all 0.3s;
+  }
+  .faculty-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+  .faculty-avatar {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: var(--navy); margin: 0 auto 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--gold);
+  }
+  .faculty-name { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .faculty-role { font-size: 13px; color: var(--gray); }
+  .faculty-dept { font-size: 12px; color: var(--gold); font-weight: 600; margin-top: 6px; }
+
+  /* ── GALLERY ── */
+  .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .gallery-item {
+    border-radius: var(--radius); overflow: hidden; cursor: pointer;
+    aspect-ratio: 4/3; position: relative;
+  }
+  .gallery-item:nth-child(1), .gallery-item:nth-child(5) { grid-column: span 2; }
+  .gallery-placeholder {
+    width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+    font-size: 32px; transition: transform 0.3s;
+  }
+  .gallery-item:hover .gallery-placeholder { transform: scale(1.05); }
+
+  /* ── NOTICE BOARD ── */
+  .notice-list { display: flex; flex-direction: column; gap: 0; }
+  .notice-item {
+    display: flex; align-items: flex-start; gap: 16px; padding: 18px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .notice-date { font-size: 11px; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; padding-top: 2px; min-width: 60px; }
+  .notice-title { font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.5; cursor: pointer; }
+  .notice-title:hover { color: var(--gold); }
+  .notice-tag { font-size: 11px; background: rgba(201,162,39,0.2); color: var(--gold); padding: 2px 8px; border-radius: 100px; margin-top: 4px; display: inline-block; font-weight: 600; }
+
+  /* ── PLACEMENTS ── */
+  .placement-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; margin-bottom: 40px; }
+  .placement-stat { text-align: center; padding: 24px; background: rgba(255,255,255,0.05); border-radius: var(--radius-lg); border: 1px solid rgba(255,255,255,0.1); }
+  .placement-stat .num { font-family: var(--font-display); font-size: 36px; font-weight: 700; color: var(--gold); }
+  .placement-stat .label { font-size: 13px; color: rgba(255,255,255,0.65); margin-top: 6px; }
+  .recruiter-logos { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .recruiter-logo {
+    padding: 10px 20px; background: rgba(255,255,255,0.06);
+    border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.12);
+    font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.8);
+  }
+
+  /* ── FOOTER ── */
+  footer { background: #060f22; color: rgba(255,255,255,0.7); }
+  .footer-main { max-width: 1200px; margin: auto; padding: 56px 24px 40px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+  .footer-brand .logo-block { margin-bottom: 16px; }
+  .footer-brand .logo-text .name { color: var(--white); }
+  .footer-brand p { font-size: 14px; line-height: 1.7; }
+  .footer-col h4 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold); margin-bottom: 16px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-col ul li a { font-size: 14px; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: var(--gold); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08); max-width: 1200px; margin: 0 auto;
+    padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+  }
+  .footer-bottom p { font-size: 13px; }
+  .social-links { display: flex; gap: 12px; }
+  .social-link {
+    width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08);
+    display: flex; align-items: center; justify-content: center; text-decoration: none;
+    font-size: 14px; transition: background 0.2s;
+  }
+  .social-link:hover { background: var(--gold); }
+
+  /* ── CHATBOT ── */
+  #chat-fab {
+    position: fixed; bottom: 28px; right: 28px; z-index: 9999;
+    width: 60px; height: 60px; border-radius: 50%;
+    background: var(--navy); border: none; cursor: pointer;
+    box-shadow: 0 8px 32px rgba(10,31,68,0.35); transition: all 0.3s;
+    display: flex; align-items: center; justify-content: center; font-size: 24px;
+  }
+  #chat-fab:hover { transform: scale(1.08); background: #0e2957; }
+  #chat-fab .fab-badge {
+    position: absolute; top: -4px; right: -4px;
+    width: 20px; height: 20px; border-radius: 50%; background: var(--gold);
+    font-size: 10px; font-weight: 700; color: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  #chatbot-panel {
+    position: fixed; bottom: 100px; right: 28px; z-index: 9998;
+    width: 380px; height: 580px;
+    background: var(--white); border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg); border: 1px solid var(--light-gray);
+    display: flex; flex-direction: column; overflow: hidden;
+    transform: translateY(20px) scale(0.95); opacity: 0; pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  #chatbot-panel.open { transform: translateY(0) scale(1); opacity: 1; pointer-events: all; }
+
+  .chat-header {
+    background: var(--navy); padding: 16px 20px;
+    display: flex; align-items: center; gap: 12px; flex-shrink: 0;
+  }
+  .chat-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--gold); display: flex; align-items: center;
+    justify-content: center; font-size: 18px; flex-shrink: 0;
+  }
+  .chat-header-info { flex: 1; }
+  .chat-header-info h3 { font-size: 15px; font-weight: 600; color: var(--white); }
+  .chat-header-info p { font-size: 12px; color: rgba(255,255,255,0.65); }
+  .chat-close {
+    background: none; border: none; color: rgba(255,255,255,0.7);
+    cursor: pointer; font-size: 18px; padding: 4px; line-height: 1;
+    transition: color 0.2s;
+  }
+  .chat-close:hover { color: var(--white); }
+  .chat-status { display: flex; align-items: center; gap: 6px; margin-top: 2px; }
+  .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.5;} }
+
+  .chat-messages { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+  .chat-messages::-webkit-scrollbar { width: 4px; }
+  .chat-messages::-webkit-scrollbar-track { background: transparent; }
+  .chat-messages::-webkit-scrollbar-thumb { background: var(--light-gray); border-radius: 2px; }
+
+  .msg { display: flex; gap: 10px; align-items: flex-end; max-width: 90%; }
+  .msg.user { flex-direction: row-reverse; align-self: flex-end; }
+  .msg-avatar { width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0; font-size: 12px; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+  .msg.bot .msg-avatar { background: var(--navy); color: var(--gold); }
+  .msg.user .msg-avatar { background: var(--gold); color: var(--navy); }
+  .msg-bubble { padding: 11px 15px; border-radius: 16px; font-size: 14px; line-height: 1.55; }
+  .msg.bot .msg-bubble { background: var(--off-white); color: var(--text); border-bottom-left-radius: 4px; }
+  .msg.user .msg-bubble { background: var(--navy); color: var(--white); border-bottom-right-radius: 4px; }
+  .msg-time { font-size: 10px; color: var(--gray); margin-top: 3px; text-align: right; }
+
+  .typing-indicator { display: flex; gap: 4px; padding: 12px 16px; }
+  .typing-indicator span { width: 8px; height: 8px; border-radius: 50%; background: var(--gray); animation: bounce 1.2s infinite; }
+  .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+  .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes bounce { 0%,80%,100%{transform:translateY(0);} 40%{transform:translateY(-8px);} }
+
+  .quick-replies { padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 8px; border-top: 1px solid var(--light-gray); }
+  .quick-reply {
+    font-size: 12px; font-weight: 500; padding: 6px 13px;
+    border: 1.5px solid var(--light-gray); border-radius: 100px;
+    background: var(--white); cursor: pointer; color: var(--navy);
+    transition: all 0.2s; white-space: nowrap;
+  }
+  .quick-reply:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+  .chat-input-area {
+    padding: 14px 16px; border-top: 1px solid var(--light-gray);
+    display: flex; gap: 10px; align-items: flex-end; flex-shrink: 0;
+  }
+  #chat-input {
+    flex: 1; padding: 10px 14px; border: 1.5px solid var(--light-gray);
+    border-radius: 20px; font-family: var(--font-body); font-size: 14px;
+    outline: none; resize: none; max-height: 100px; line-height: 1.5;
+    transition: border-color 0.2s;
+  }
+  #chat-input:focus { border-color: var(--navy); }
+  #chat-send {
+    width: 40px; height: 40px; border-radius: 50%; background: var(--navy);
+    border: none; cursor: pointer; color: var(--white); font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s; flex-shrink: 0;
+  }
+  #chat-send:hover { background: #0e2957; }
+  #chat-send:disabled { background: var(--light-gray); cursor: not-allowed; }
+
+  /* ── ABOUT SECTION ── */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .about-visual { position: relative; }
+  .about-img-placeholder {
+    width: 100%; aspect-ratio: 4/3; border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, var(--navy) 0%, #1a3a6e 100%);
+    display: flex; align-items: center; justify-content: center; font-size: 80px;
+    position: relative; overflow: hidden;
+  }
+  .about-img-placeholder::after {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(45deg, rgba(201,162,39,0.05) 0, rgba(201,162,39,0.05) 1px, transparent 0, transparent 20px);
+  }
+  .about-float {
+    position: absolute; bottom: -20px; right: -20px;
+    background: var(--gold); border-radius: var(--radius-lg);
+    padding: 20px 24px; box-shadow: var(--shadow);
+    text-align: center;
+  }
+  .about-float .num { font-family: var(--font-display); font-size: 32px; font-weight: 700; color: var(--navy); line-height: 1; }
+  .about-float .label { font-size: 12px; font-weight: 600; color: rgba(10,31,68,0.75); margin-top: 4px; }
+  .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
+  .about-feature { display: flex; align-items: flex-start; gap: 12px; }
+  .check-icon { width: 22px; height: 22px; border-radius: 50%; background: rgba(10,31,68,0.08); display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; margin-top: 2px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { display: none; }
+    .hamburger { display: block; margin-left: auto; }
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-card { display: none; }
+    .footer-main { grid-template-columns: 1fr 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .placement-stats { grid-template-columns: repeat(2,1fr); }
+    .gallery-grid { grid-template-columns: repeat(2,1fr); }
+    .gallery-item:nth-child(1), .gallery-item:nth-child(5) { grid-column: span 1; }
+    .about-grid { grid-template-columns: 1fr; }
+    #chatbot-panel { width: 340px; right: 16px; }
+  }
+  @media (max-width: 560px) {
+    .form-row { grid-template-columns: 1fr; }
+    .footer-main { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: repeat(3,1fr); }
+    #chatbot-panel { width: calc(100vw - 32px); right: 16px; }
+    .placement-stats { grid-template-columns: repeat(2,1fr); }
+  }
+
+  /* ── TABS ── */
+  .tabs { display: flex; gap: 0; border-bottom: 2px solid var(--light-gray); margin-bottom: 32px; overflow-x: auto; }
+  .tab {
+    padding: 12px 24px; font-size: 14px; font-weight: 600; color: var(--gray);
+    border: none; background: none; cursor: pointer; white-space: nowrap;
+    border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.2s;
+  }
+  .tab.active { color: var(--navy); border-bottom-color: var(--navy); }
+  .tab:hover:not(.active) { color: var(--navy); }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* Smooth page sections */
+  section { scroll-margin-top: 80px; }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span>📍 Phase-2, Mohali (Chandigarh) Punjab — India</span>
+    <div class="topbar-links">
+      <a href="tel:+919914433199">📞 +91-9914433199</a>
+      <a href="mailto:info@gjitm.ac.in">✉️ info@gjitm.ac.in</a>
+      <a href="#admissions">Admissions 2025–26</a>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo-block">
+      <div class="logo-emblem">GJ</div>
+      <div class="logo-text">
+        <div class="name">Gyan Jyoti Institute</div>
+        <div class="abbr">of Technology &amp; Management · GJITM</div>
+      </div>
+    </a>
+    <nav>
+      <a href="#about" class="active">About</a>
+      <a href="#courses">Courses</a>
+      <a href="#admissions">Admissions</a>
+      <a href="#fees">Fees</a>
+      <a href="#events">Events</a>
+      <a href="#placements">Placements</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#admissions" class="btn-apply">Apply Now</a>
+    <button class="hamburger" onclick="document.getElementById('mobile-nav').style.display=document.getElementById('mobile-nav').style.display==='block'?'none':'block'" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div id="mobile-nav" class="mobile-nav">
+    <a href="#about">About</a>
+    <a href="#courses">Courses</a>
+    <a href="#admissions">Admissions</a>
+    <a href="#fees">Fees Structure</a>
+    <a href="#events">Events</a>
+    <a href="#placements">Placements</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">⭐ NAAC Accredited A Grade Institution</div>
+      <h1>Shape Your Future at<br><span>GJITM Mohali</span></h1>
+      <p>25+ years of academic excellence. Empowering students with world-class education in Management, Technology & Commerce — right in the heart of Punjab.</p>
+      <div class="hero-actions">
+        <a href="#admissions" class="btn-primary">🎓 Apply for Admission</a>
+        <a href="#courses" class="btn-outline">📚 Explore Courses</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><div class="stat-num">25+</div><div class="stat-label">Years of Excellence</div></div>
+        <div class="stat-item"><div class="stat-num">15K+</div><div class="stat-label">Alumni Network</div></div>
+        <div class="stat-item"><div class="stat-num">350+</div><div class="stat-label">Recruiters</div></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title">Quick Access</div>
+      <div class="quick-link" onclick="sendChat('Tell me about admission process')">
+        <div class="quick-link-icon">📝</div> Admission 2025–26
+      </div>
+      <div class="quick-link" onclick="sendChat('What are the course fees?')">
+        <div class="quick-link-icon">💰</div> Fee Structure
+      </div>
+      <div class="quick-link" onclick="sendChat('What are the upcoming events?')">
+        <div class="quick-link-icon">📅</div> Upcoming Events
+      </div>
+      <div class="quick-link" onclick="sendChat('Tell me about placement records')">
+        <div class="quick-link-icon">🏆</div> Placement Records
+      </div>
+      <div class="quick-link" onclick="sendChat('How can I contact the college?')">
+        <div class="quick-link-icon">📞</div> Contact &amp; Directions
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner" id="ticker">
+    <span class="ticker-item">🎓 Admissions Open 2025–26 — MBA, MCA, BCA, BBA, B.Com</span>
+    <span class="ticker-item">🏆 100% Placement Assistance for Eligible Students</span>
+    <span class="ticker-item">📅 Annual Cultural Fest "UTSAV 2025" — April 20–22</span>
+    <span class="ticker-item">📢 Last Date for Scholarship Applications: May 15, 2025</span>
+    <span class="ticker-item">🌍 International Exchange Program with Canadian Universities</span>
+    <span class="ticker-item">🎓 Admissions Open 2025–26 — MBA, MCA, BCA, BBA, B.Com</span>
+    <span class="ticker-item">🏆 100% Placement Assistance for Eligible Students</span>
+    <span class="ticker-item">📅 Annual Cultural Fest "UTSAV 2025" — April 20–22</span>
+    <span class="ticker-item">📢 Last Date for Scholarship Applications: May 15, 2025</span>
+    <span class="ticker-item">🌍 International Exchange Program with Canadian Universities</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div>
+        <div class="section-label">About GJITM</div>
+        <h2 class="section-title">Where Knowledge Meets Opportunity</h2>
+        <p style="color:var(--gray);line-height:1.7;margin-bottom:20px;">Established in 1997, Gyan Jyoti Institute of Technology & Management is a premier institution affiliated with IKGPTU, Jalandhar. Located in the education hub of Mohali, we offer an exceptional academic environment that fosters innovation, leadership and entrepreneurial spirit.</p>
+        <p style="color:var(--gray);line-height:1.7;margin-bottom:28px;">Our state-of-the-art campus is equipped with modern labs, a well-stocked library, sports facilities, and vibrant student clubs — ensuring holistic development beyond the classroom.</p>
+        <div class="about-features">
+          <div class="about-feature"><div class="check-icon">✓</div><span style="font-size:14px;font-weight:500;">NAAC Accredited A Grade</span></div>
+          <div class="about-feature"><div class="check-icon">✓</div><span style="font-size:14px;font-weight:500;">IKGPTU Affiliated</span></div>
+          <div class="about-feature"><div class="check-icon">✓</div><span style="font-size:14px;font-weight:500;">Industry-Aligned Curriculum</span></div>
+          <div class="about-feature"><div class="check-icon">✓</div><span style="font-size:14px;font-weight:500;">Canadian University Pathway</span></div>
+          <div class="about-feature"><div class="check-icon">✓</div><span style="font-size:14px;font-weight:500;">100% Wi-Fi Campus</span></div>
+          <div class="about-feature"><div class="check-icon">✓</div><span style="font-size:14px;font-weight:500;">Dedicated Hostel Facility</span></div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="about-img-placeholder">🏛️</div>
+        <div class="about-float">
+          <div class="num">A+</div>
+          <div class="label">NAAC Grade</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section class="section section-alt" id="courses">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Academic Programs</div>
+      <h2 class="section-title">Our Courses</h2>
+      <p class="section-subtitle">Industry-relevant programs designed to launch successful careers in management, technology and commerce.</p>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" onclick="switchTab('pg')">Post Graduate</button>
+      <button class="tab" onclick="switchTab('ug')">Under Graduate</button>
+      <button class="tab" onclick="switchTab('diploma')">Diploma & Cert.</button>
+    </div>
+
+    <div id="tab-pg" class="tab-content active">
+      <div class="courses-grid">
+        <div class="course-card">
+          <div class="course-icon" style="background:rgba(10,31,68,0.08)">📊</div>
+          <h3>MBA</h3>
+          <p>Master of Business Administration — specialisations in Finance, Marketing, HR, Operations, and International Business.</p>
+          <div class="course-meta">
+            <span class="badge badge-navy">2 Years</span>
+            <span class="badge badge-gold">Full-time</span>
+            <span class="badge badge-red">60 Seats</span>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="course-icon" style="background:rgba(201,162,39,0.1)">💻</div>
+          <h3>MCA</h3>
+          <p>Master of Computer Applications — advanced training in software development, AI/ML, cloud computing and data analytics.</p>
+          <div class="course-meta">
+            <span class="badge badge-navy">2 Years</span>
+            <span class="badge badge-gold">Full-time</span>
+            <span class="badge badge-red">60 Seats</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="tab-ug" class="tab-content">
+      <div class="courses-grid">
+        <div class="course-card">
+          <div class="course-icon" style="background:rgba(34,197,94,0.1)">🖥️</div>
+          <h3>BCA</h3>
+          <p>Bachelor of Computer Applications — foundation in programming, databases, web development and networking.</p>
+          <div class="course-meta"><span class="badge badge-navy">3 Years</span><span class="badge badge-gold">Full-time</span><span class="badge badge-red">60 Seats</span></div>
+        </div>
+        <div class="course-card">
+          <div class="course-icon" style="background:rgba(59,130,246,0.1)">📈</div>
+          <h3>BBA</h3>
+          <p>Bachelor of Business Administration — prepares students for corporate leadership and entrepreneurship.</p>
+          <div class="course-meta"><span class="badge badge-navy">3 Years</span><span class="badge badge-gold">Full-time</span><span class="badge badge-red">60 Seats</span></div>
+        </div>
+        <div class="course-card">
+          <div class="course-icon" style="background:rgba(192,57,43,0.1)">💼</div>
+          <h3>B.Com (Hons.)</h3>
+          <p>Bachelor of Commerce — comprehensive study of accounting, taxation, finance and business law.</p>
+          <div class="course-meta"><span class="badge badge-navy">3 Years</span><span class="badge badge-gold">Full-time</span><span class="badge badge-red">60 Seats</span></div>
+        </div>
+      </div>
+    </div>
+    <div id="tab-diploma" class="tab-content">
+      <div class="courses-grid">
+        <div class="course-card">
+          <div class="course-icon" style="background:rgba(168,85,247,0.1)">🌍</div>
+          <h3>Canadian Pathway</h3>
+          <p>Integrated pathway program for students aspiring to pursue higher studies or work in Canada. Guidance, bridging courses and visa support included.</p>
+          <div class="course-meta"><span class="badge badge-navy">1 Year</span><span class="badge badge-gold">Hybrid</span></div>
+        </div>
+        <div class="course-card">
+          <div class="course-icon" style="background:rgba(234,179,8,0.1)">📜</div>
+          <h3>Certificate Programs</h3>
+          <p>Short-term industry certifications in Digital Marketing, Tally, Python Programming, Business Communication and more.</p>
+          <div class="course-meta"><span class="badge badge-navy">3–6 Months</span><span class="badge badge-gold">Flexible</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADMISSIONS -->
+<section class="section" id="admissions">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Admissions 2025–26</div>
+      <h2 class="section-title">How to Apply</h2>
+      <p class="section-subtitle">Simple three-step process to secure your seat at GJITM.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-bottom:40px;">
+      <div style="text-align:center;padding:28px;background:var(--off-white);border-radius:var(--radius-lg);">
+        <div style="width:56px;height:56px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 16px;color:var(--gold);font-family:var(--font-display);font-weight:700;">1</div>
+        <h4 style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px;">Fill Online Form</h4>
+        <p style="font-size:14px;color:var(--gray);">Complete the online application form with personal, academic and course details.</p>
+      </div>
+      <div style="text-align:center;padding:28px;background:var(--off-white);border-radius:var(--radius-lg);">
+        <div style="width:56px;height:56px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 16px;color:var(--navy);font-family:var(--font-display);font-weight:700;">2</div>
+        <h4 style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px;">Document Submission</h4>
+        <p style="font-size:14px;color:var(--gray);">Submit 10th, 12th/graduation marksheets, ID proof and photos at the admission office.</p>
+      </div>
+      <div style="text-align:center;padding:28px;background:var(--off-white);border-radius:var(--radius-lg);">
+        <div style="width:56px;height:56px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 16px;color:var(--white);font-family:var(--font-display);font-weight:700;">3</div>
+        <h4 style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px;">Fee Payment & Confirm</h4>
+        <p style="font-size:14px;color:var(--gray);">Pay the admission fee online or by DD. Your seat gets confirmed with an official receipt.</p>
+      </div>
+    </div>
+    <div style="background:var(--navy);border-radius:var(--radius-lg);padding:28px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;">
+      <div>
+        <h3 style="font-family:var(--font-display);font-size:20px;color:var(--white);margin-bottom:6px;">Ready to start your journey?</h3>
+        <p style="color:rgba(255,255,255,0.65);font-size:14px;">Limited seats available. Apply now to secure early advantage.</p>
+      </div>
+      <a href="#contact" class="btn-primary" style="font-size:14px;">Start Application →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEES -->
+<section class="section section-alt" id="fees">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Fee Structure</div>
+      <h2 class="section-title">2025–26 Course Fees</h2>
+      <p class="section-subtitle">Transparent and affordable fee structure with scholarship options available.</p>
+    </div>
+    <div class="fees-table-wrap">
+      <table class="fees-table">
+        <thead>
+          <tr>
+            <th>Program</th>
+            <th>Duration</th>
+            <th>Annual Tuition Fee</th>
+            <th>Registration Fee</th>
+            <th>Hostel (Optional)</th>
+            <th>Total (Year 1)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>MBA</strong></td><td>2 Years</td><td>₹85,000</td><td>₹5,000</td><td>₹60,000</td><td>₹1,50,000</td></tr>
+          <tr><td><strong>MCA</strong></td><td>2 Years</td><td>₹75,000</td><td>₹5,000</td><td>₹60,000</td><td>₹1,40,000</td></tr>
+          <tr><td><strong>BCA</strong></td><td>3 Years</td><td>₹55,000</td><td>₹3,000</td><td>₹60,000</td><td>₹1,18,000</td></tr>
+          <tr><td><strong>BBA</strong></td><td>3 Years</td><td>₹55,000</td><td>₹3,000</td><td>₹60,000</td><td>₹1,18,000</td></tr>
+          <tr><td><strong>B.Com (Hons.)</strong></td><td>3 Years</td><td>₹45,000</td><td>₹3,000</td><td>₹60,000</td><td>₹1,08,000</td></tr>
+          <tr><td><strong>Canadian Pathway</strong></td><td>1 Year</td><td>₹1,20,000</td><td>₹10,000</td><td>₹60,000</td><td>₹1,90,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13px;color:var(--gray);margin-top:14px;">* Fees include tuition, library, lab charges. Exam fees payable to IKGPTU separately. Scholarships available for meritorious students.</p>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="section" id="events">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Campus Life</div>
+      <h2 class="section-title">Upcoming Events</h2>
+      <p class="section-subtitle">A vibrant academic and cultural calendar that keeps the campus buzzing all year round.</p>
+    </div>
+    <div class="events-grid">
+      <div class="event-card">
+        <div class="event-header">
+          <div class="event-date"><div class="day">20</div><div class="month">Apr</div></div>
+          <div><div class="event-title">UTSAV 2025 — Annual Cultural Fest</div><div class="event-type">🎭 Cultural Event</div></div>
+        </div>
+        <div class="event-body"><p>Three-day mega cultural festival featuring music, dance, drama competitions, fashion show, and celebrity performances.</p></div>
+        <div class="event-footer"><span class="event-loc">📍 GJITM Auditorium</span><span class="badge badge-gold" style="font-size:11px;">Open to All</span></div>
+      </div>
+      <div class="event-card">
+        <div class="event-header">
+          <div class="event-date"><div class="day">05</div><div class="month">May</div></div>
+          <div><div class="event-title">Industry Connect 5.0 — Career Fair</div><div class="event-type">💼 Placement Drive</div></div>
+        </div>
+        <div class="event-body"><p>Top 50+ companies visiting campus for placement drives. Final year students must register by April 25.</p></div>
+        <div class="event-footer"><span class="event-loc">📍 Main Campus</span><span class="badge badge-red" style="font-size:11px;">Register Now</span></div>
+      </div>
+      <div class="event-card">
+        <div class="event-header">
+          <div class="event-date"><div class="day">12</div><div class="month">May</div></div>
+          <div><div class="event-title">TechFest IGNITE 2025</div><div class="event-type">🤖 Tech Event</div></div>
+        </div>
+        <div class="event-body"><p>National level technical symposium with hackathon, project expo, coding contests and guest lectures by industry leaders.</p></div>
+        <div class="event-footer"><span class="event-loc">📍 IT Block</span><span class="badge badge-navy" style="font-size:11px;">₹200 Entry</span></div>
+      </div>
+      <div class="event-card">
+        <div class="event-header">
+          <div class="event-date"><div class="day">15</div><div class="month">May</div></div>
+          <div><div class="event-title">Scholarship Application Deadline</div><div class="event-type">📢 Important Notice</div></div>
+        </div>
+        <div class="event-body"><p>Last date for submitting scholarship applications for session 2025–26. Merit, sports and SC/ST scholarships available.</p></div>
+        <div class="event-footer"><span class="event-loc">📍 Admin Office</span><span class="badge badge-red" style="font-size:11px;">Deadline</span></div>
+      </div>
+      <div class="event-card">
+        <div class="event-header">
+          <div class="event-date"><div class="day">22</div><div class="month">May</div></div>
+          <div><div class="event-title">Orientation Day — New Batch 2025</div><div class="event-type">🎓 Academic</div></div>
+        </div>
+        <div class="event-body"><p>Welcome program for freshers. Campus tour, faculty introductions, club registrations, and senior mentoring sessions.</p></div>
+        <div class="event-footer"><span class="event-loc">📍 Convention Hall</span><span class="badge badge-gold" style="font-size:11px;">Mandatory</span></div>
+      </div>
+      <div class="event-card">
+        <div class="event-header">
+          <div class="event-date"><div class="day">01</div><div class="month">Jun</div></div>
+          <div><div class="event-title">Research Paper Submission — GJITM Journal</div><div class="event-type">📖 Research</div></div>
+        </div>
+        <div class="event-body"><p>Submissions open for GJITM Management Research Journal Vol. 8. Faculty and PG students may submit original research papers.</p></div>
+        <div class="event-footer"><span class="event-loc">📍 Online Submission</span><span class="badge badge-navy" style="font-size:11px;">Faculty/PG</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLACEMENTS -->
+<section class="section section-dark" id="placements">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Placements</div>
+      <h2 class="section-title">Our Placement Record</h2>
+      <p class="section-subtitle">Industry-ready graduates placed at India's leading companies across all sectors.</p>
+    </div>
+    <div class="placement-stats">
+      <div class="placement-stat"><div class="num">98%</div><div class="label">Placement Rate (2024)</div></div>
+      <div class="placement-stat"><div class="num">₹6.8L</div><div class="label">Avg. CTC Package</div></div>
+      <div class="placement-stat"><div class="num">₹18L</div><div class="label">Highest Package</div></div>
+      <div class="placement-stat"><div class="num">350+</div><div class="label">Recruiting Companies</div></div>
+    </div>
+    <h3 style="font-size:16px;font-weight:600;color:rgba(255,255,255,0.7);margin-bottom:20px;text-transform:uppercase;letter-spacing:0.04em;">Top Recruiters</h3>
+    <div class="recruiter-logos">
+      <span class="recruiter-logo">Infosys</span>
+      <span class="recruiter-logo">TCS</span>
+      <span class="recruiter-logo">Wipro</span>
+      <span class="recruiter-logo">HCL Technologies</span>
+      <span class="recruiter-logo">Deloitte</span>
+      <span class="recruiter-logo">KPMG</span>
+      <span class="recruiter-logo">Ernst & Young</span>
+      <span class="recruiter-logo">Cognizant</span>
+      <span class="recruiter-logo">Accenture</span>
+      <span class="recruiter-logo">Amazon</span>
+      <span class="recruiter-logo">HDFC Bank</span>
+      <span class="recruiter-logo">ICICI Bank</span>
+      <span class="recruiter-logo">Axis Bank</span>
+      <span class="recruiter-logo">Reliance Jio</span>
+      <span class="recruiter-logo">Byju's</span>
+      <span class="recruiter-logo">Zomato</span>
+    </div>
+  </div>
+</section>
+
+<!-- FACULTY -->
+<section class="section" id="faculty">
+  <div class="section-inner">
+    <div class="section-header centered">
+      <div class="section-label">Our Team</div>
+      <h2 class="section-title">Expert Faculty</h2>
+      <p class="section-subtitle">Experienced educators and industry professionals committed to student success.</p>
+    </div>
+    <div class="faculty-grid">
+      <div class="faculty-card"><div class="faculty-avatar">PS</div><div class="faculty-name">Dr. Priya Sharma</div><div class="faculty-role">Professor & Head</div><div class="faculty-dept">MBA Department</div></div>
+      <div class="faculty-card"><div class="faculty-avatar">RK</div><div class="faculty-name">Dr. Rajesh Kumar</div><div class="faculty-role">Associate Professor</div><div class="faculty-dept">MCA Department</div></div>
+      <div class="faculty-card"><div class="faculty-avatar">SG</div><div class="faculty-name">Ms. Simran Gill</div><div class="faculty-role">Assistant Professor</div><div class="faculty-dept">BCA Department</div></div>
+      <div class="faculty-card"><div class="faculty-avatar">AM</div><div class="faculty-name">Dr. Anil Mehta</div><div class="faculty-role">Professor</div><div class="faculty-dept">Finance & Accounts</div></div>
+      <div class="faculty-card"><div class="faculty-avatar">NK</div><div class="faculty-name">Ms. Neha Kapoor</div><div class="faculty-role">Assistant Professor</div><div class="faculty-dept">BBA Department</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTICE BOARD -->
+<section class="section section-dark" id="notices">
+  <div class="section-inner">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;" id="notice-grid">
+      <div>
+        <div class="section-label">Notice Board</div>
+        <h2 class="section-title" style="margin-bottom:24px;">Latest Notices</h2>
+        <div class="notice-list">
+          <div class="notice-item"><span class="notice-date">Apr 10</span><div><div class="notice-title">IKGPTU Golden Chance — April 2026 Examinations for pending degrees</div><span class="notice-tag">Examination</span></div></div>
+          <div class="notice-item"><span class="notice-date">Apr 5</span><div><div class="notice-title">Class of the Year Trophy awarded — BBA Section C wins the coveted prize</div><span class="notice-tag">Achievement</span></div></div>
+          <div class="notice-item"><span class="notice-date">Apr 2</span><div><div class="notice-title">Industrial Visit to Alpha IT Consulting — Registration open for BCA students</div><span class="notice-tag">Industry Visit</span></div></div>
+          <div class="notice-item"><span class="notice-date">Mar 28</span><div><div class="notice-title">Scholarship application portal is now live — last date May 15</div><span class="notice-tag">Scholarship</span></div></div>
+          <div class="notice-item"><span class="notice-date">Mar 25</span><div><div class="notice-title">Jhalak Dikhla Jaa — Group performance event results declared</div><span class="notice-tag">Cultural</span></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">In The News</div>
+        <h2 class="section-title" style="margin-bottom:24px;">Media Coverage</h2>
+        <div class="notice-list">
+          <div class="notice-item"><span class="notice-date">Apr 8</span><div><div class="notice-title">Sodashi 4.0 — International Women's Day Celebration featured in Tribune</div><span class="notice-tag">Media</span></div></div>
+          <div class="notice-item"><span class="notice-date">Apr 3</span><div><div class="notice-title">GJITM NCC Cadets partner with Mohali Police for anti-drug drive</div><span class="notice-tag">NCC/NSS</span></div></div>
+          <div class="notice-item"><span class="notice-date">Mar 27</span><div><div class="notice-title">African Students Meet 2026 hosted at GJITM — international collaboration</div><span class="notice-tag">International</span></div></div>
+          <div class="notice-item"><span class="notice-date">Mar 20</span><div><div class="notice-title">2nd Place at Project D.R.O.P. by IPCA — 438 kg plastic waste collected</div><span class="notice-tag">Environment</span></div></div>
+          <div class="notice-item"><span class="notice-date">Mar 15</span><div><div class="notice-title">World Kidney Day — Health awareness session covered by local press</div><span class="notice-tag">Health</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Contact Us</h2>
+      <p class="section-subtitle">We're here to help. Reach out for admissions, information or any other query.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div><h4>Campus Address</h4><p>Phase-2, Industrial Area, Mohali (Chandigarh) — Punjab 160055</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div><h4>Phone Numbers</h4><p>Admissions: +91-9914433199<br>General: +91-172-2214155 / 2214166</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div><h4>Email</h4><p>info@gjitm.ac.in<br>admissions@gjitm.ac.in</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">⏰</div>
+          <div><h4>Office Hours</h4><p>Monday – Saturday: 9:00 AM – 5:00 PM<br>Sunday: Closed</p></div>
+        </div>
+        <div style="margin-top:8px;padding:20px;background:var(--off-white);border-radius:var(--radius-lg);">
+          <p style="font-size:14px;font-weight:600;color:var(--navy);margin-bottom:8px;">🤖 Need quick answers?</p>
+          <p style="font-size:13px;color:var(--gray);">Use our AI Helpdesk chatbot (bottom right corner) for instant answers about courses, fees, admissions, events and more — available 24/7.</p>
+        </div>
+      </div>
+      <div>
+        <div style="background:var(--off-white);border-radius:var(--radius-lg);padding:28px;">
+          <h3 style="font-size:18px;font-weight:700;color:var(--navy);margin-bottom:20px;">Send Us a Message</h3>
+          <div class="contact-form">
+            <div class="form-row">
+              <div class="form-group"><label>Full Name *</label><input type="text" placeholder="Your full name" id="cf-name"></div>
+              <div class="form-group"><label>Phone *</label><input type="tel" placeholder="+91 XXXXX XXXXX" id="cf-phone"></div>
+            </div>
+            <div class="form-group"><label>Email Address *</label><input type="email" placeholder="your@email.com" id="cf-email"></div>
+            <div class="form-group">
+              <label>Subject</label>
+              <select id="cf-subject">
+                <option>Admission Enquiry</option>
+                <option>Fee Structure</option>
+                <option>Scholarship Information</option>
+                <option>Hostel Facilities</option>
+                <option>Placement Query</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Message</label><textarea placeholder="Tell us what you'd like to know..." id="cf-msg"></textarea></div>
+            <button class="btn-submit" onclick="submitForm()">Send Message →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <a href="#" class="logo-block" style="margin-bottom:14px;">
+        <div class="logo-emblem">GJ</div>
+        <div class="logo-text">
+          <div class="name" style="color:var(--white);">Gyan Jyoti Institute</div>
+          <div class="abbr">of Technology & Management</div>
+        </div>
+      </a>
+      <p style="font-size:14px;line-height:1.7;">Nurturing talent and shaping futures since 1997. NAAC Accredited, IKGPTU Affiliated. Located in the educational hub of Mohali, Punjab.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#about">About GJITM</a></li>
+        <li><a href="#courses">Our Courses</a></li>
+        <li><a href="#admissions">Admissions</a></li>
+        <li><a href="#fees">Fee Structure</a></li>
+        <li><a href="#placements">Placements</a></li>
+        <li><a href="#faculty">Faculty</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="#courses">MBA</a></li>
+        <li><a href="#courses">MCA</a></li>
+        <li><a href="#courses">BCA</a></li>
+        <li><a href="#courses">BBA</a></li>
+        <li><a href="#courses">B.Com (Hons.)</a></li>
+        <li><a href="#courses">Canadian Pathway</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="#notices">Notice Board</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#">Download Brochure</a></li>
+        <li><a href="#">Student Portal</a></li>
+        <li><a href="#">Alumni Network</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Gyan Jyoti Institute of Technology & Management, Mohali. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#" class="social-link" title="Facebook">f</a>
+      <a href="#" class="social-link" title="Instagram">📸</a>
+      <a href="#" class="social-link" title="YouTube">▶</a>
+      <a href="#" class="social-link" title="LinkedIn">in</a>
+    </div>
+  </div>
+</footer>
+
+<!-- CHATBOT FAB -->
+<button id="chat-fab" onclick="toggleChat()" title="Ask our AI Helpdesk">
+  🎓
+  <div class="fab-badge">AI</div>
+</button>
+
+<!-- CHATBOT PANEL -->
+<div id="chatbot-panel">
+  <div class="chat-header">
+    <div class="chat-avatar">🎓</div>
+    <div class="chat-header-info">
+      <h3>GJITM Helpdesk</h3>
+      <div class="chat-status"><div class="status-dot"></div><span style="font-size:12px;color:rgba(255,255,255,0.65);">AI Assistant • Online</span></div>
+    </div>
+    <button class="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div class="chat-messages" id="chat-messages"></div>
+  <div class="quick-replies" id="quick-replies">
+    <button class="quick-reply" onclick="sendChat('List all courses offered at GJITM')">All Courses 📚</button>
+    <button class="quick-reply" onclick="sendChat('What are the fees?')">Fees 💰</button>
+    <button class="quick-reply" onclick="sendChat('Admission process')">Admission</button>
+    <button class="quick-reply" onclick="sendChat('Upcoming events')">Events 📅</button>
+    <button class="quick-reply" onclick="sendChat('Placement statistics')">Placements 🏆</button>
+    <button class="quick-reply" onclick="sendChat('Contact details')">Contact 📞</button>
+  </div>
+  <div class="chat-input-area">
+    <textarea id="chat-input" placeholder="Ask anything about GJITM…" rows="1" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+    <button id="chat-send" onclick="sendMessage()">➤</button>
+  </div>
+</div>
+
+<script>
+// ── TABS & FORM ──
+function switchTab(id) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  const content = document.getElementById('tab-' + id);
+  if(content) content.classList.add('active');
+  if(event) event.target.classList.add('active');
+}
+
+function submitForm() {
+  const n = document.getElementById('cf-name').value;
+  const e = document.getElementById('cf-email').value;
+  if (!n || !e) { alert('Please fill in your name and email.'); return; }
+  alert('Thank you, ' + n + '! We\'ve received your enquiry.');
+}
+
+// ── CHATBOT LOGIC ──
+let chatOpen = false;
+let chatHistory = [];
+
+// Security Prompt 
+let apiKey = prompt("Enter the API key to access the GJITM Helpdesk Chatbot features.");
+
+if (!apiKey) {
+    alert("GJITM Helpdesk Chatbot needs an API key to work. Please refresh the page and enter your key.");
+}
+
+// Detailed Context 
+const COLLEGE_CONTEXT = `You are GJITM Helpdesk, the official AI assistant for Gyan Jyoti Institute of Technology & Management (GJITM), Mohali. 
+FORMATTING RULE: Use plain dashes "-" for lists. Do not use stars "**".
+
+ABOUT GJITM:
+- Established: 1997 | Affiliated: IKGPTU, Jalandhar | NAAC Accredited A Grade.
+- Campus: State-of-the-art labs, library, and 100% Wi-Fi enabled campus in Mohali.
+
+POST GRADUATE COURSES:
+- MBA: Master of Business Administration (2 Years). Specializations in Finance, Marketing, HR, Operations, and International Business. Fee: ₹85,000/year. 60 Seats.
+- MCA: Master of Computer Applications (2 Years). Training in Software Development, AI/ML, and Data Analytics. Fee: ₹75,000/year. 60 Seats.
+
+UNDER GRADUATE COURSES:
+- BCA: Bachelor of Computer Applications (3 Years). Foundation in programming, web dev, and networking. Fee: ₹55,000/year. 60 Seats.
+- BBA: Bachelor of Business Administration (3 Years). Corporate leadership and entrepreneurship focus. Fee: ₹55,000/year. 60 Seats.
+- B.Com (Hons.): Bachelor of Commerce (3 Years). Accounting, taxation, and finance. Fee: ₹45,000/year. 60 Seats.
+
+OTHER PROGRAMS:
+- Canadian Pathway Program: 1 Year pathway for studies in Canada. Fee: ₹1,20,000.
+- Certificate Programs: 3-6 Months in Digital Marketing, Python, and Tally.
+
+PLACEMENTS & CONTACT:
+- Placements: 98% placement rate. Highest package ₹18L. Top recruiters: Infosys, TCS, Deloitte, Amazon.
+- Contact: +91-9914433199 | info@gjitm.ac.in.
+- Address: Phase-2, Industrial Area, Mohali (Chandigarh), Punjab.`;
+
+function toggleChat() {
+  chatOpen = !chatOpen;
+  const panel = document.getElementById('chatbot-panel');
+  const fab = document.getElementById('chat-fab');
+  panel.classList.toggle('open', chatOpen);
+  fab.textContent = chatOpen ? '✕' : '🎓';
+  
+  if (chatOpen && chatHistory.length === 0) {
+      addBotMessage("👋 Welcome to GJITM! How can I help you today?");
+  }
+}
+
+function addBotMessage(text) {
+  const msgs = document.getElementById('chat-messages');
+  const div = document.createElement('div');
+  div.className = 'msg bot';
+  const time = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+  div.innerHTML = `<div class="msg-avatar">GJ</div><div><div class="msg-bubble">${text.replace(/\n/g,'<br>')}</div><div class="msg-time">${time}</div></div>`;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function addUserMessage(text) {
+  const msgs = document.getElementById('chat-messages');
+  const div = document.createElement('div');
+  div.className = 'msg user';
+  const time = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+  div.innerHTML = `<div class="msg-avatar">U</div><div><div class="msg-bubble">${text}</div><div class="msg-time">${time}</div></div>`;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function showTyping() {
+  const msgs = document.getElementById('chat-messages');
+  const div = document.createElement('div');
+  div.className = 'msg bot'; div.id = 'typing-msg';
+  div.innerHTML = `<div class="msg-avatar">GJ</div><div class="msg-bubble"><div class="typing-indicator"><span></span><span></span><span></span></div></div>`;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function hideTyping() {
+  const t = document.getElementById('typing-msg');
+  if (t) t.remove();
+}
+
+async function sendChat(text) {
+  if (!chatOpen) toggleChat();
+  setTimeout(() => sendChatMessage(text), 100);
+}
+
+async function sendMessage() {
+  const input = document.getElementById('chat-input');
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  sendChatMessage(text);
+}
+
+async function sendChatMessage(text) {
+  if (!apiKey) {
+      addBotMessage("Please refresh and enter the API key to continue.");
+      return;
+  }
+  addUserMessage(text);
+  document.getElementById('chat-send').disabled = true;
+  showTyping();
+
+  const history = chatHistory.map(msg => ({
+    role: msg.role === 'user' ? 'user' : 'model',
+    parts: [{ text: msg.content }]
+  }));
+
+  try {
+    const url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=" + apiKey;
+
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: history.concat([{ role: 'user', parts: [{ text: text }] }]),
+        systemInstruction: { parts: [{ text: COLLEGE_CONTEXT }] }
+      })
+    });
+
+    const data = await res.json();
+    hideTyping();
+
+    if (data.error) {
+      addBotMessage("System Notification: " + data.error.message);
+    } else {
+      let reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "I'm sorry, I'm unable to fetch that information at the moment. Please try again later.";
+      addBotMessage(reply);
+      chatHistory.push({ role: 'user', content: text });
+      chatHistory.push({ role: 'model', content: reply });
+    }
+
+  } catch (e) {
+    hideTyping();
+    addBotMessage("Connection error! Make sure Live Server is active.");
+  }
+  document.getElementById('chat-send').disabled = false;
+}
+
+function handleKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+}
+</script></body>
+</html>
