@@ -4,7 +4,12 @@ A smart and interactive AI-powered chatbot-based college helpdesk project built 
 This project is designed to help students get quick answers about college-related information in a simple and user-friendly way.  
 The webpage includes a complete college website layout with sections like About, Courses, Admissions, Fees, Events, Placements, Faculty, Notices, and Contact, along with a chatbot interface.
 
+## Live Demo
+
+https://mohit-jagudi.github.io/AI-College-Assistant/
+
 ---
+
 
 ## Problem Statement
 
